@@ -1,0 +1,53 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+/* Smoother mobile sizing + prevent horizontal jitter */
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Safer media rendering on small screens */
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Slightly nicer default selection for dark UI */
+::selection {
+    background: rgba(168, 85, 247, 0.35);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+.animate-scroll {
+    animation: scroll 20s linear infinite;
+}
+.animate-scroll:hover {
+    animation-play-state: paused;
+}
+
+.card-glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.2),
+        transparent
+    );
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.card-glass:hover::before {
+    opacity: 1;
+}
