@@ -1,7 +1,10 @@
 import { FaReact, FaNodeJs, FaPython } from "react-icons/fa";
 import { SiMongodb, SiTypescript } from "react-icons/si";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom"
 
 const Home = () => {
+    const user =  useSelector((store) => store.user)
     return (
         <>
             <div className="hero bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen relative overflow-hidden px-3 sm:px-6">
@@ -20,7 +23,13 @@ const Home = () => {
                             Where developers meet developers. Connect with like-minded programmers, 
                             <span className="block text-purple-300 font-medium">collaborate on projects, and build amazing things together.</span>
                         </p>
-                        <button className="btn btn-md sm:btn-lg bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 border-0 text-white font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">Got to Feed</button>
+                        {
+                            user ? (
+                                <Link to="/feed" className="btn btn-md sm:btn-lg bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 border-0 text-white font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">Go to Feed</Link>
+                            ) : (
+                                <Link to="/login" className="btn btn-md sm:btn-lg bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 border-0 text-white font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">Get Started</Link>
+                            )
+                        }
                     </div>
                 </div>
             </div>
@@ -173,12 +182,29 @@ const Home = () => {
 
                         {/* Button Group */}
                         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
-                            <button className="px-10 py-4 rounded-xl font-bold text-lg text-white 
-                            bg-gradient-to-r from-pink-500 to-purple-600 
-                            hover:from-pink-400 hover:to-purple-500 
-                            hover:scale-110 transition-all duration-300 shadow-2xl hover:shadow-pink-500/50 cursor-pointer">
-                            Start Your Journey 🚀
-                            </button>
+                            {
+                                user ? (
+                                    <Link to="/feed">
+                                        <button className="px-10 py-4 rounded-xl font-bold text-lg text-white 
+                                        bg-gradient-to-r from-pink-500 to-purple-600 
+                                        hover:from-pink-400 hover:to-purple-500 
+                                        hover:scale-110 transition-all duration-300 shadow-2xl hover:shadow-pink-500/50 cursor-pointer">
+                                            Start Your Journey 🚀
+                                        </button>
+                                    </Link>
+                                )
+                                    : (
+
+                                        <Link to="/login">
+                                            <button className="px-10 py-4 rounded-xl font-bold text-lg text-white 
+                                            bg-gradient-to-r from-pink-500 to-purple-600 
+                                            hover:from-pink-400 hover:to-purple-500 
+                                            hover:scale-110 transition-all duration-300 shadow-2xl hover:shadow-pink-500/50 cursor-pointer">
+                                                Start Your Journey 🚀
+                                            </button>
+                                        </Link>
+                                    )
+                            }
                             <button className="px-10 py-4 rounded-xl font-bold text-lg 
                             border-2 border-purple-400 text-purple-300
                             hover:bg-purple-400/10 hover:scale-105 transition-all duration-300 cursor-pointer">
