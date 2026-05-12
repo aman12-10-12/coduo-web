@@ -61,12 +61,12 @@ const Feed = () => {
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-2 sm:mb-3">
                         Discover Developers
                     </h1>
-                    <p className="text-white/70 text-base sm:text-lg px-2 mb-8">
+                    <p className="text-white/70 text-base sm:text-lg px-2 sm:mb-10">
                         Find your perfect development partner
                     </p>
                 </div>
 
-                <div className="flex justify-center items-start w-full pb-6 sm:pb-8">
+                <div className="flex justify-center items-start w-full pb-6 sm:pb-10">
                     <div
                         className="relative w-full max-w-[380px] sm:max-w-[460px] min-h-[480px] h-[clamp(28rem,52dvh,40rem)] sm:h-[clamp(30rem,54dvh,42rem)]"
                     >
