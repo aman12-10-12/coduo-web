@@ -61,7 +61,7 @@ const Feed = () => {
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-2 sm:mb-3">
                         Discover Developers
                     </h1>
-                    <p className="text-white/70 text-base sm:text-lg px-2 sm:mb-10">
+                    <p className="text-white/70 text-base sm:text-lg px-2 sm:mb-2">
                         Find your perfect development partner
                     </p>
                 </div>
